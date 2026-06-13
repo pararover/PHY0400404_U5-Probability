@@ -1,0 +1,54 @@
+\section{Fundamental concepts of probability}
+	
+	\subsection{Random experiment}
+		Any process of observation is referred to as an experiment. The results of an observation are called the outcomes of the experiment. \emph{An experiment is called a random experiment if its outcome cannot be predicted}. Typical examples of a random experiment are as follows:
+		\begin{enumerate}[i.]
+			\item the roll of a die
+			\item the toss of a coin
+			\item drawing a card from a deck
+			\item selecting a message signal for transmission from several messages
+		\end{enumerate}
+		
+	\subsection{Sample space}
+		The set of all possible outcomes of a random experiment is called the \emph{sample space} (or \emph{universal set}), and it is denoted by $S$.
+		
+		An element in a sample space $S$ is called a \emph{sample point}. Each outcome of a random experiment corresponds to a
+		sample point.
+		
+		\subsubsection*{Examples}
+			\begin{enumerate}
+				\item Find the sample space for the experiment of tossing a coin (a) once and (b) twice.\\
+				\textbf{Solution:}
+				\begin{enumerate}[(a)]
+					\item There are two possible outcomes, heads ($H$) or tails ($T$). Thus:
+					$$S=\qty{H,T}$$
+					
+					\item There are four possible outcomes, which are pairs of heads and tails. Thus:
+					$$S=\qty{HH,HT,TH,TT}$$
+				\end{enumerate}
+				
+				\item Find the sample space for the experiment of tossing a coin repeatedly and of counting the number of tosses required until the first head appears.\\
+				\textbf{Solution:} All possible outcomes for this experiment are the terms of the sequence $1,2,3,\dots$.
+				
+				Thus
+				$$S=\qty{1,2,3,\dots}$$
+				Therefore, there are an infinite number of outcomes.
+			\end{enumerate}
+			
+	\subsection{Event}
+		An \emph{event} is a subset $A$ of the sample space $S$, i.e., it is a set of possible outcomes.
+		
+		If the outcome of an experiment is an element of $A$, we say that the event $A$ has occurred.
+		
+		An event consisting of a single point of $S$ is often called a \emph{simple} or \emph{elementary event}.
+		
+		If $A$ and $B$ are events of a sample space $S$, then
+		\begin{enumerate}
+			\item $A\cup B$ is the event ``either $A$ or $B$ or both'' and is called the \emph{union of $A$ and $B$}.
+			
+			\item $A\cap B$ is the event ``both $A$ and $B$'' and is called the \emph{intersection of $A$ and $B$}.
+			
+			\item $A'$ is the event ``not A'' and is called the \emph{complement of $A$}.
+			
+			\item $A-B=A\cap B'$ is the event ``A but not B.'' In particular, $A'=S-A$.
+		\end{enumerate}
