@@ -52,3 +52,21 @@
 			
 			\item $A-B=A\cap B'$ is the event ``A but not B.'' In particular, $A'=S-A$.
 		\end{enumerate}
+		
+	\subsection{Probability}
+		If an event can occur in $h$ different ways out of a total number of $n$ possible ways, all of which are equally likely, then the probability of the event is $\dfrac{h}{n}$.
+		
+		\subsubsection{The axioms of probability}
+			Suppose we have a sample space $S$. If $S$ is discrete, all subsets correspond to events and conversely, but if $S$ is non-discrete, only special subsets (called measurable) correspond to events.
+			
+			To each event $A$ in the class $C$ of events, we associate a real number $\prob{A}$, which is called the \emph{probability of the event $A$}, if the following axioms are satisfied.
+			\begin{itemize}
+				\item \textbf{Axiom 1:} For every event $A$ in the class $C$,
+				$$\prob{A}\geqslant 0$$
+				
+				\item \textbf{Axiom 2:} For the sure or certain event $S$ in the class $C$,
+				$$\prob{S}=1$$
+				
+				\item \textbf{Axiom 3:} For any number of mutually exclusive events $A_1$, $A_2$, $\dots$, in the class $C$,
+				$$\prob{A_1\cup A_2\cup\cdots}=\prob{A_1}+\prob{A_2}+\cdot$$
+			\end{itemize}
