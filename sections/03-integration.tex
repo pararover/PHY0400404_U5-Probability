@@ -1,0 +1,221 @@
+\section{Complex integration}
+	If a complex function $f(z)$ is single-valued and continuous in some region $\mathcal{R}$ in the complex plane, then we can
+	define the complex integral of $f(z)$ between two points $A$ and $B$ along some curve in $\mathcal{R}$. Its value will depend, in general, upon the path taken between $A$ and $B$, as shown in the figure below.
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.4\textwidth]{figures/fig_complex-integral}
+	\end{figure}
+    
+    \subsection{Simply and multiply connected regions}
+    	A region $\mathcal{R}$ is called \emph{simply-connected} if any simple closed curve, which lies in $\mathcal{R}$, can be
+    	shrunk to a point without leaving $\mathcal{R}$.
+    	
+    	A region $\mathcal{R}$, which is not simply-connected, is called \emph{multiply-connected}.
+    	
+    	\subsubsection{Simply connected region}
+    		\begin{figure}[h!]
+    			\centering
+    			\includegraphics[width=0.35\textwidth]{figures/fig_simply-connected}
+    		\end{figure}
+    		Suppose $\mathcal{R}$ is the region defined by $|z|<2$ shown shaded in the above figure. If $\Gamma$ is any simple
+    		closed curve lying in $\mathcal{R}$, i.e. whose points are in $\mathcal{R}$, we see that it can be shrunk to a point that lies in $\mathcal{R}$, and thus does not leave $\mathcal{R}$, so that $\mathcal{R}$ is simply-connected. 
+    	
+    	\subsubsection{Multiply connected region}
+    		\begin{figure}[h!]
+    			\centering
+    			\includegraphics[width=0.35\textwidth]{figures/fig_multiply-connected}
+    		\end{figure}
+    		If $\mathcal{R}$ is the region defined by $1<|z|<2$, shown shaded in the above figure, then there is a simple closed curve $\Gamma$ lying in $\mathcal{R}$ that cannot possibly be shrunk to a point without leaving $\mathcal{R}$, so that $\mathcal{R}$ is multiply-connected.
+    		
+    		\begin{figure}[h!]
+    			\centering
+    			\includegraphics[width=0.35\textwidth]{figures/fig_region-holes}
+    		\end{figure}
+    		Intuitively, a simply-connected region is one that does not have any ``holes'' in it, while a multiply-connected region is one that does. The multiply-connected region of the above figure has three holes and, hence, is said to be triply-connected.
+    		
+    \subsection{Green's theorem}
+    	Let $P(x, y)$ and $Q(x, y)$ be continuous and have continuous partial derivatives in a region $\mathcal{R}$ and on its boundary $C$. Then Green's theorem states that
+    	\begin{align*}
+    		\oint_{C}{\qty[P\dd{x}+Q\dd{y}]}=\iint_{\mathcal{R}}{\qty(\pdv{Q}{x}-\pdv{P}{y})\dd{x}\dd{y}}
+    	\end{align*}
+    	where $\mathcal{R}$ may be simply or multiply connected.
+    
+    \subsection{Cauchy's integral theorem}
+    	Let $f(z)$ be analytic in a region $\mathcal{R}$ and on its boundary $C$. Then
+    	\begin{align*}
+    		\boxed{\oint_{C}{f(z)\dd{z}}=0}
+    	\end{align*}
+    	This fundamental theorem is known as \emph{Cauchy's integral theorem}.
+    	
+    	\subsubsection*{Proof}
+    		\setcounter{equation}{0}
+    		Suppose a function $f(z)$ is analytic and its derivative $f'(z)$ is continuous at all points on a simply connected region $\mathcal{R}$ which is bounded by a simple curve $C$.
+    		
+    		Let,
+    		\begin{align*}
+    			f(z)=u(x,y)+iv(x,y)
+    		\end{align*}
+    		and
+    		\begin{align*}
+    			z&=x+iy \\
+    			\implies\dd{z}&=\dd{x}+i\dd{y}
+    		\end{align*}
+    		
+    		Then we have
+    		\begin{align}
+    			\oint_{C}{f(z)\dd{z}}&=\oint_{C}{\qty[u(x,y)+iv(x,y)]\qty(\dd{x}+i\dd{y})} \nonumber\\
+    			\implies\oint_{C}{f(z)\dd{z}}&=\oint_{C}{\qty(u\dd{x}-v\dd{y})}+i\oint_{C}{\qty(v\dd{x}+u\dd{y})} \label{eqn:cit:oint-f}
+    		\end{align}
+    		
+    		Applying Green's theorem on the first integral on the RHS of equation (\ref{eqn:cit:oint-f}), we get
+    		\begin{align}
+    			\oint_{C}{\qty(u\dd{x}-v\dd{y})}&=\iint_{\mathcal{R}}{\qty(-\pdv{v}{x}-\pdv{u}{y})\dd{x}\dd{y}} \label{eqn:cit:integ-1}
+    		\end{align}
+    		Again, applying Green's theorem on the second integral on the RHS of equation (\ref{eqn:cit:oint-f}), we get
+    		\begin{align}
+    			\oint_{C}{\qty(v\dd{x}+u\dd{y})}&=\iint_{\mathcal{R}}{\qty(\pdv{u}{x}-\pdv{v}{y})\dd{x}\dd{y}} \label{eqn:cit:integ-2}
+    		\end{align}
+    		Because $f(z)$ is analytic, it satisfies the Cauchy-Riemann conditions, and so we have
+    		\begin{align*}
+    			\pdv{u}{x}=\pdv{v}{y}&\qq{and}\pdv{u}{y}=-\pdv{v}{x} \\
+    			\implies\pdv{u}{x}-\pdv{v}{y}=0&\qq{and}-\pdv{v}{x}-\pdv{u}{y}=0
+    		\end{align*}
+    		Therefore, from equation (\ref{eqn:cit:oint-f}) we obtain
+    		\begin{align*}
+    			\oint_{C}{f(z)\dd{z}}&=0
+    		\end{align*}
+    		which proves \emph{Cauchy's integral theorem}.
+    		
+    	\subsubsection*{Examples}
+    		\begin{enumerate}
+    			\item Evaluate the integral
+    			$$\oint_{C}{\dfrac{3z^2+7z+1}{z+1}\dd{z}}$$
+    			where $C$ is the circle $|z|=\dfrac{1}{2}$.\\
+    			\textbf{Solution:} The integrand is $f(z)=\dfrac{3z^2+7z+1}{z+1}$, whose poles are obtained by setting the denominator to zero, i.e. $z+1=0\implies z_0=-1$.
+    			
+    			The given circle $C$ is centred at the origin and has a radius of $\dfrac{1}{2}$.
+    			\begin{figure}[h!]
+    				\centering
+    				\includegraphics[width=0.5\textwidth]{figures/fig_cit-eg-01}
+    			\end{figure}
+    			
+    			We find that the singularity $z_0=-1$ lies outside the circle $C$. Hence the function $f(z)$ is analytic everywhere inside $C$.
+    			
+    			Therefore, by Cauchy's integral theorem, we have
+    			\begin{align*}
+    				\oint_{C}{f(z)\dd{z}}&=0 \\
+    				\implies\oint_{C}{\dfrac{3z^2+7z+1}{z+1}\dd{z}}&=0
+    			\end{align*}
+    			
+    			\item Evaluate the integral
+    			$$\oint_{C}{\dfrac{z+4}{z^2+2z+5}\dd{z}}$$
+    			where $C$ is the circle $|z+1|=1$.\\
+    			\textbf{Solution:} The integrand is $f(z)=\dfrac{z+4}{z^2+2z+5}$, whose poles are obtained by setting the denominator to zero, i.e.
+    			\begin{align*}
+    				z^2+2z+5&=0 \\
+    				\implies z_0&=\dfrac{-2\pm\sqrt{4-20}}{2}=\dfrac{-2\pm\sqrt{-16}}{2}=\dfrac{-2\pm 4i}{2} \\
+    				\implies z_0&=-1\pm 2i
+    			\end{align*}
+    			Hence the poles are $z_0=-1+2i$ and $z_0=-1-2i$.
+    			
+    			The given circle $C$ is centred at $z=-1$ and has a radius of 1.
+    			\begin{figure}[h!]
+    				\centering
+    				\includegraphics[width=0.5\textwidth]{figures/fig_cit-eg-02}
+    			\end{figure}
+    			
+    			We find that both of the singularities $z_0=-1\pm 2i$ lie outside the circle $C$. Hence the function $f(z)$ is analytic everywhere inside $C$.
+    			
+    			Therefore, by Cauchy's integral theorem, we have
+    			\begin{align*}
+    				\oint_{C}{f(z)\dd{z}}&=0 \\
+    				\implies\oint_{C}{\dfrac{z+4}{z^2+2z+5}\dd{z}}&=0
+    			\end{align*}
+    			
+    		\end{enumerate}
+    
+    \subsection{Cauchy's integral formulas}
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.4\textwidth]{figures/fig_cif}
+    	\end{figure}
+    	Let $f(z)$ be analytic inside and on a simple closed curve $C$ and let $a$ be any point inside $C$. Then
+    	\begin{align*}
+    		f(a)&=\dfrac{1}{2\pi i}\oint_{C}{\dfrac{f(z)}{z-a}\dd{z}}
+    	\end{align*}
+    	where $C$ is traversed in the positive (counterclockwise) sense.
+    	
+    	Also, the $n^\text{th}$ derivative of $f(z)$ at $z=a$ is given by
+    	\begin{align*}
+    		f^{(n)}(a)&=\dfrac{n!}{2\pi i}\oint_{C}{\dfrac{f(z)}{(z-a)^{n+1}}\dd{z}},\quad n=1,2,3,\dots
+    	\end{align*}
+    	
+    	\subsubsection*{Examples}
+    		\begin{enumerate}
+    			\item Evaluate the integral
+    			$$\oint_{C}{\dfrac{z\dd{z}}{z^2-3z+2}}$$
+    			where $C$ is the circle $|z-2|=\dfrac{1}{2}$.\\
+    			\textbf{Solution:} We find the poles of the integrand by setting the denominator to zero and solving as follows:
+    			\begin{align*}
+    				z^2-3z+2&=0 \\
+    				\implies z^2-z-2z+2&=0 \\
+    				\implies z(z-1)-2(z-1)&=0 \\
+    				\implies (z-1)(z-2)&=0 \\
+    				\implies z_0=1, 2
+    			\end{align*}
+    			Hence the poles are $z_0=1$ and $z_0=2$.
+    			
+    			The given circle $C$ is centred at $z=2$ and has a radius of $\dfrac{1}{2}$.
+    			\begin{figure}[h!]
+    				\centering
+    				\includegraphics[width=0.5\textwidth]{figures/fig_cif-eg-01}
+    			\end{figure}
+    			
+    			We find that that out of the two singularities, the pole at $z_0=2$ lies inside $C$.
+    			
+    			We choose $f(z)=\dfrac{z}{z-1}$, then $f(z)$ is analytic everywhere within $C$. We can then write the integrand as
+    			\begin{align*}
+    				\dfrac{z}{z^2-3z+2}=\dfrac{z}{(z-1)(z-2)}=\dfrac{f(z)}{z-2}
+    			\end{align*}
+    			
+    			By Cauchy's integral formula, we have
+    			\begin{align*}
+    				f(2)&=\dfrac{1}{2\pi i}\oint_{C}{\dfrac{f(z)}{z-2}\dd{z}} \\
+    				\implies\oint_{C}{\dfrac{f(z)}{z-2}\dd{z}}&=2\pi if(2) \\
+    					&=2\pi i\qty(\dfrac{2}{2-1}) \\
+    				\implies\oint_{C}{\dfrac{z\dd{z}}{z^2-3z+2}}&=4\pi i
+    			\end{align*}
+    			
+    			\item Evaluate the integral
+    			$$\oint_{C}{\dfrac{2z+1}{z^2+z}\dd{z}}$$
+    			where $C$ is the circle $|z|=\dfrac{1}{2}$.\\
+    			\textbf{Solution:} We find the poles of the integrand by setting the denominator to zero and solving as follows:
+    			\begin{align*}
+    				z^2+z&=0 \\
+    				\implies z(z+1)&=0 \\
+    				\implies z_0=0, -1
+    			\end{align*}
+    			Hence the poles are $z_0=0$ and $z_0=-1$.
+    			
+    			The given circle $C$ is centred at $z=0$ and has a radius of $\dfrac{1}{2}$.
+    			\begin{figure}[h!]
+    				\centering
+    				\includegraphics[width=0.5\textwidth]{figures/fig_cif-eg-02}
+    			\end{figure}
+    			
+    			We find that that out of the two singularities, the pole at $z_0=0$ is enclosed within $C$.
+    			
+    			We choose $f(z)=\dfrac{2z+1}{z+1}$, then $f(z)$ is analytic everywhere within $C$. We can then write the integrand as
+    			\begin{align*}
+    				\dfrac{2z+1}{z^2+z}=\dfrac{2z+1}{z(z+1)}=\dfrac{f(z)}{z}
+    			\end{align*}
+    			
+    			By Cauchy's integral formula, we have
+    			\begin{align*}
+    				f(0)&=\dfrac{1}{2\pi i}\oint_{C}{\dfrac{f(z)}{z-0}\dd{z}} \\
+    				\implies\oint_{C}{\dfrac{f(z)}{z}\dd{z}}&=2\pi if(0) \\
+    					&=2\pi i\qty(\dfrac{2\times 0+1}{0+1}) \\
+    				\implies\oint_{C}{\dfrac{2z+1}{z^2+z}\dd{z}}&=2\pi i
+    			\end{align*}
+    			
+    		\end{enumerate}

@@ -1,0 +1,349 @@
+\section*{Complex trigonometric and hyperbolic identities}
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\cosh{x}=\dfrac{e^x+e^{-x}}{2}$
+			\item $\sinh{x}=\dfrac{e^x-e^{-x}}{2}$
+			\item $\cos{x}=\dfrac{e^{ix}+e^{-ix}}{2}$
+			\item $\sin{x}=\dfrac{e^{ix}-e^{-ix}}{2i}$
+		\end{enumerate}
+	\end{multicols}
+	Using the above identities, it can be shown that
+	\begin{multicols}{2}
+		\begin{enumerate}
+			\item $\cosh{ix}=\cos{x}$
+			\item $\cos{ix}=\cosh{x}$
+			\item $\sinh{ix}=i\sin{x}$
+			\item $\sin{ix}=i\sinh{x}$
+		\end{enumerate}
+	\end{multicols}
+
+\section{Functions of complex variables}
+	Suppose, to each value that a complex variable $z$ can assume, there corresponds one or more values of a complex variable $w$. We then say that $w$ is a function of $z$ and write $w=f(z)$.
+	\begin{itemize}
+		\item The complex variable $z$ is called an \textit{independent variable}
+		\item The complex variable $w$ is called a \textit{dependent variable}. 
+	\end{itemize}
+	
+	\subsection{Complex derivatives}
+		\begin{figure}[h!]
+			\centering
+			\includegraphics[width=0.75\textwidth]{figures/fig_comp-derivative}
+		\end{figure}
+		If a complex function $f(z)$ is single-valued in some region $\mathcal{R}$ of the $z$ plane, the derivative of $f(z)$ is defined as
+		\begin{align*}
+			f'(z)&=\lim_{\Delta z\to 0}{\dfrac{\Delta w}{\Delta z}}=\lim_{\Delta z\to 0}{\dfrac{f(z+\Delta z)-f(z)}{\Delta z}}
+		\end{align*}
+		provided that the limit exists independent of the manner in which $\Delta z$ approaches $0$. In such a case, we say that $f(z)$ is
+		\textit{differentiable} at $z$ and $f'(z)$ is known as the \textit{derivative} of the function $f(z)$.
+    
+	\subsection{Complex analytic functions}
+		If the derivative $f'(z)$ exists at all points $z$ of a region $\mathcal{R}$, then $f(z)$ is said to be analytic in $\mathcal{R}$ and is referred to as an \textit{analytic function} in $\mathcal{R}$.
+		
+		A function $f(z)$ is said to be analytic at a point $z_0$ if there exists a neighborhood $|z - z_0| < \delta$ at all points
+		of which $f'(z)$ exists.
+		
+		\textbf{Note:} Analytic functions are sometimes also known as \textit{regular} or \textit{holomorphic} or \textit{monogenic} functions.
+
+	\subsection{Cauchy-Riemann conditions}
+		Given a complex function which can be written as follows:
+		\begin{align*}
+			w=f(z)=u(x,y)+iv(x,y)
+		\end{align*}
+		and is analytic over a region $\mathcal{R}$ on the $z$-plane, then the 2D functions $u(x,y)$ and $v(x,y)$ satisfy the following Cauchy-Riemann conditions in $\mathcal{R}$:
+		\begin{align*}
+			\boxed{\pdv{u}{x}=\pdv{v}{y}\qq{and}\pdv{u}{y}=-\pdv{v}{x}}
+		\end{align*}
+		If the partial derivatives of $u$ and $v$ are continuous in $\mathcal{R}$, then the Cauchy-Riemann equations are sufficient
+		conditions that $f(z)$ be analytic in $\mathcal{R}$.
+		
+		\textbf{Note:} The functions $u(x,y)$ and $v(x,y)$ are known as \textit{conjugate functions}.
+		
+		\subsubsection*{Theorem 1}
+			The necessary conditions for a function $f(z)=u(x,y)+iv(x,y)$ to be analytic at all points in a region $\mathcal{R}$ are
+			\begin{enumerate}[a)]
+				\item $\pdv{u}{x}=\pdv{v}{y}$
+				\item $\pdv{u}{y}=-\pdv{v}{x}$
+			\end{enumerate}
+			provided that $\pdv{u}{x}$, $\pdv{u}{y}$, $\pdv{v}{x}$ and $\pdv{v}{y}$ exist.
+			
+		\subsubsection*{Theorem 2}
+			The sufficient conditions for a function $f(z)=u(x,y)+iv(x,y)$ to be analytic at all points in a region $\mathcal{R}$ are
+			\begin{enumerate}[a)]
+				\item $\pdv{u}{x}=\pdv{v}{y}$ and $\pdv{u}{y}=-\pdv{v}{x}$
+				\item $\pdv{u}{x}$, $\pdv{u}{y}$, $\pdv{v}{x}$ and $\pdv{v}{y}$ are continuous functions of $x$ and $y$ in the region $\mathcal{R}$.
+			\end{enumerate}
+			
+		\subsubsection*{Theorem 3}
+			Given a function $f(z)=u(x,y)+iv(x,y)$, which is analytic over a region $\mathcal{R}$, its derivative is obtained as
+			\begin{align*}
+				f'(z)=\dv{f}{z}=\pdv{u}{x}+i\pdv{v}{x}=\pdv{v}{y}-i\pdv{u}{y}
+			\end{align*}
+		
+	\subsection{Examples of analyticity of complex functions}
+		\begin{enumerate}
+			\item Determine whether $f(z)=\dfrac{1}{z}$ is analytic or not.\\
+			\textbf{Solution:} Let us consider
+			\begin{align*}
+				f(z)&=\dfrac{1}{z} \\
+					&=\dfrac{1}{x+iy} \\
+					&=\qty(\dfrac{1}{x+iy})\times\qty(\dfrac{x-iy}{x-iy}) \\
+					&=\dfrac{x-iy}{\qty(x+iy)\qty(x-iy)} \\
+					&=\dfrac{x-iy}{x^2+y^2} \\
+				\implies f(z)&=\qty(\dfrac{x}{x^2+y^2})+i\qty(\dfrac{-y}{x^2+y^2}) \\
+					&=u(x,y)+iv(x,y)
+			\end{align*}
+			This gives us
+			\begin{align*}
+				u(x,y)=\dfrac{x}{x^2+y^2}\qq{and}v(x,y)=\dfrac{-y}{x^2+y^2}
+			\end{align*}
+			
+			We obtain the partial derivatives as\vspace{-3ex}
+			\begin{multicols}{2}
+				\begin{align*}
+					\pdv{u}{x}&=\dfrac{\qty(x^2+y^2)\times 1-x\times 2x}{\qty(x^2+y^2)^2} \\
+					&=\dfrac{x^2+y^2-2x^2}{\qty(x^2+y^2)^2} \\
+					&=\dfrac{y^2-x^2}{\qty(x^2+y^2)^2}
+				\end{align*}
+				
+				\begin{align*}
+					\pdv{u}{y}&=\dfrac{\qty(x^2+y^2)\times 0-x\times 2y}{\qty(x^2+y^2)^2} \\
+					&=\dfrac{-2xy}{\qty(x^2+y^2)^2}
+				\end{align*}
+			\end{multicols}
+			\vspace{-3ex}
+			
+			\begin{multicols}{2}
+				\begin{align*}
+					\pdv{v}{x}&=\dfrac{\qty(x^2+y^2)\times 0-(-y)\times 2x}{\qty(x^2+y^2)^2} \\
+					&=\dfrac{2xy}{\qty(x^2+y^2)^2}
+				\end{align*}
+				
+				\begin{align*}
+					\pdv{v}{y}&=\dfrac{\qty(x^2+y^2)\times (-1)-(-y)\times 2y}{\qty(x^2+y^2)^2} \\
+					&=\dfrac{2y^2-x^2-y^2}{\qty(x^2+y^2)^2} \\
+					&=\dfrac{y^2-x^2}{\qty(x^2+y^2)^2}
+				\end{align*}
+			\end{multicols}
+			From the above partial derivatives, we find that
+			\begin{align*}
+				\pdv{u}{x}=\pdv{v}{y}\qq{and}\pdv{u}{y}=-\pdv{v}{x}
+			\end{align*}
+			Hence the Cauchy-Riemann conditions are satisfied. Also the partial derivatives $\pdv{u}{x}$, $\pdv{u}{y}$, $\pdv{v}{x}$ and $\pdv{v}{y}$ are continuous everywhere except at $(0,0)$.
+			
+			Therefore the complex function $f(z)=\dfrac{1}{z}$ is analytic everywhere except at $z=0$.
+			
+			\item Show that the function $f(z)=e^x\qty(\cos{y}+i\sin{y})$ is analytic, and then find its derivative.\\
+			\textbf{Solution:} Let us consider
+			\begin{align*}
+				f(z)&=e^x\qty(\cos{y}+i\sin{y}) \\
+				\implies f(z)&=\qty(e^x\cos{y})+i\qty(e^x\sin{y}) \\
+				&=u(x,y)+iv(x,y)
+			\end{align*}
+			
+			This gives us
+			\begin{align*}
+				u(x,y)=e^x\cos{y}\qq{and}v(x,y)=e^x\sin{y}
+			\end{align*}
+			
+			We obtain the partial derivatives as\vspace{-3ex}
+			\begin{multicols}{2}
+				\begin{align*}
+					\pdv{u}{x}&=\pdv{x}\qty(e^x\cos{y}) \\
+						&=e^x\cos{y}
+				\end{align*}
+				
+				\begin{align*}
+					\pdv{u}{y}&=\pdv{y}\qty(e^x\cos{y}) \\
+						&=-e^x\sin{y}
+				\end{align*}
+			\end{multicols}
+			\vspace{-3ex}
+			
+			\begin{multicols}{2}
+				\begin{align*}
+					\pdv{v}{x}&=\pdv{x}\qty(e^x\sin{y}) \\
+						&=e^x\sin{y}
+				\end{align*}
+				
+				\begin{align*}
+					\pdv{v}{y}&=\pdv{y}\qty(e^x\sin{y}) \\
+						&=e^x\cos{y}
+				\end{align*}
+			\end{multicols}
+			From the above partial derivatives, we find that
+			\begin{align*}
+				\pdv{u}{x}=\pdv{v}{y}\qq{and}\pdv{u}{y}=-\pdv{v}{x}
+			\end{align*}
+			Hence the Cauchy-Riemann conditions are satisfied. Also the partial derivatives $\pdv{u}{x}$, $\pdv{u}{y}$, $\pdv{v}{x}$ and $\pdv{v}{y}$ are continuous everywhere.
+			
+			Therefore the complex function $f(z)=e^x\qty(\cos{y}+i\sin{y})$ is analytic everywhere.
+			
+			Finally, the derivative of the given function is obtained as
+			\begin{align*}
+				f'(z)&=\pdv{u}{x}+i\pdv{v}{x} \\
+					&=e^x\cos{y}+ie^x\sin{y} \\
+				\implies f'(z)&=e^x\qty(\cos{y}+i\sin{y})
+			\end{align*}
+			
+			\item Test the analyticity of the function $w=\sin{z}$ and thereby show that $\dv{z}\qty(\sin{z})=\cos{z}$.\\
+			\textbf{Solution:} We have
+			\begin{align*}
+				w&=\sin{z} \\
+					&=\sin\qty(x+iy) \\
+					&=\sin{x}\cos{iy}+\cos{x}\sin{iy} \\
+					&=\sin{x}\qty(\cosh{y})+\cos{x}\qty(i\sinh{y}) \\
+				\implies w=f(z)&=\sin{x}\cosh{y}+i\cos{x}\sinh{y}
+			\end{align*}
+			This gives us
+			\begin{align*}
+				u(x,y)=\sin{x}\cosh{y}\qq{and}v(x,y)=\cos{x}\sinh{y}
+			\end{align*}
+			The partial derivatives are\vspace{-3ex}
+			\begin{multicols}{2}
+				\begin{align*}
+					\pdv{u}{x}&=\pdv{x}\qty(\sin{x}\cosh{y}) \\
+						&=\cos{x}\cosh{y}
+				\end{align*}
+				
+				\begin{align*}
+					\pdv{u}{y}&=\pdv{y}\qty(\sin{x}\cosh{y}) \\
+						&=\sin{x}\sinh{y}
+				\end{align*}
+			\end{multicols}
+			\vspace{-3ex}
+			
+			\begin{multicols}{2}
+				\begin{align*}
+					\pdv{v}{x}&=\pdv{x}\qty(\cos{x}\sinh{y}) \\
+						&=-\sin{x}\sinh{y}
+				\end{align*}
+				
+				\begin{align*}
+					\pdv{v}{y}&=\pdv{y}\qty(\cos{x}\sinh{y}) \\
+						&=\cos{x}\cosh{y}
+				\end{align*}
+			\end{multicols}
+			From the above partial derivatives, we find that
+			\begin{align*}
+				\pdv{u}{x}=\pdv{v}{y}\qq{and}\pdv{u}{y}=-\pdv{v}{x}
+			\end{align*}
+			Hence the Cauchy-Riemann conditions are satisfied. Also the partial derivatives $\pdv{u}{x}$, $\pdv{u}{y}$, $\pdv{v}{x}$ and $\pdv{v}{y}$ are continuous everywhere.
+			
+			Therefore the complex function $f(z)=\sin{z}$ is analytic everywhere.
+			
+			Now, we evaluate the derivative as follows
+			\begin{align*}
+				\dv{z}\qty(\sin{z})&=\pdv{u}{x}+i\pdv{v}{x} \\
+					&=\cos{x}\cosh{y}+i\qty(-\sin{x}\sinh{y}) \\
+					&=\cos{x}\cosh{y}-\sin{x}\qty(i\sinh{y}) \\
+					&=\cos{x}\qty(\cos{iy})-\sin{x}\qty(\sin{iy}) \\
+					&=\cos\qty(x+iy) \\
+				\implies\dv{z}\qty(\sin{z})&=\cos{z}
+			\end{align*}
+			
+			\item Find the values of $C_1$ and $C_2$ such that the function
+			\begin{align*}
+				f(z)=x^2+C_1y^2-2xy+i\qty(C_2x^2-y^2+2xy)
+			\end{align*}
+			is analytic. Also show that $f'(z)=2(1+i)z$.\\
+			\textbf{Solution:} The given function is
+			\begin{align*}
+				f(z)=x^2+C_1y^2-2xy+i\qty(C_2x^2-y^2+2xy)
+			\end{align*}
+			from which we obtain
+			\begin{align*}
+				u(x,y)=x^2+C_1y^2-2xy\qq{and}v(x,y)=C_2x^2-y^2+2xy
+			\end{align*}
+			
+			For the given function to be analytic, it should satisfy the Cauchy-Riemann conditions, i.e.
+			\begin{align*}
+				\pdv{u}{x}&=\pdv{v}{y} \\
+				\implies\pdv{x}\qty(x^2+C_1y^2-2xy)&=\pdv{y}\qty(C_2x^2-y^2+2xy) \\
+				\implies 2x-2y&=-2y+2x
+			\end{align*}
+			and
+			\begin{align*}
+				\pdv{u}{y}&=-\pdv{v}{x} \\
+				\implies\pdv{y}\qty(x^2+C_1y^2-2xy)&=-\pdv{x}\qty(C_2x^2-y^2+2xy) \\
+				\implies 2C_1y-2x&=-\qty(2C_2x+2y) \\
+				\implies 2C_1y-2x&=-2y-2C_2x
+			\end{align*}
+			Comparing the coefficients of $y$ and $x$ above, we obtain
+			\begin{align*}
+				2C_1=-2&\qq{and}-2C_2=-2 \\
+				\implies C_1=-1&\qq{and}C_2=1
+			\end{align*}
+			Hence the given function is
+			\begin{align*}
+				f(z)=x^2-y^2-2xy+i\qty(x^2-y^2+2xy)
+			\end{align*}
+			
+			Now, we have
+			\begin{align*}
+				\pdv{u}{y}=2C_1y-2x& \\
+				\implies\pdv{u}{y}=-2y-2x&\qq{and}\pdv{v}{y}=-2y+2x
+			\end{align*}
+			
+			Therefore, the derivative is
+			\begin{align*}
+				f'(z)&=\pdv{v}{y}-i\pdv{u}{y} \\
+				\implies f'(z)&=-2y+2x-i\qty(-2y-2x) \\
+					&=-2y+2x+2i\qty(x+y) \\
+					&=2\qty[(x+ix)+(-y+iy)] \\
+					&=2\qty[(1+i)x+i(1+i)y] \\
+					&=2(1+i)(x+iy) \\
+				\implies f'(z)&=2(1+i)z
+			\end{align*}
+			
+			\item Obtain the Cauchy-Riemann conditions in polar form.\\ \setcounterref{equation}{0}
+			\textbf{Solution:} The polar representation of a complex number is
+			\begin{align}
+				z=x+iy=re^{i\theta} \label{eqn:z-polar}
+			\end{align}
+			Differentiating equation (\ref{eqn:z-polar}) with respect to $r$ and $\theta$ give us\vspace{-4ex}
+			\begin{multicols}{2}
+				\begin{align}
+					\pdv{z}{r}&=e^{i\theta} \label{eqn:dz-dr}
+				\end{align}
+				
+				\begin{align}
+					\pdv{z}{\theta}&=ire^{i\theta} \label{eqn:dz-dtheta}
+				\end{align}
+			\end{multicols}
+			Let us now consider an analytic function given as
+			\begin{align}
+				f(z)=u+iv \label{eqn:f-uiv}
+			\end{align}
+			Differentiating equation (\ref{eqn:f-uiv}) with respect to $r$ gives us
+			\begin{align*}
+				\pdv{r}\qty[f(z)]&=\pdv{r}\qty(u+iv) \\
+				\implies\dv{f}{z}\pdv{z}{r}&=\pdv{u}{r}+i\pdv{v}{r} \\
+				\implies f'(z)e^{i\theta}&=\pdv{u}{r}+i\pdv{v}{r}\qq{[using eqn. (\ref{eqn:dz-dr}) on LHS]}
+			\end{align*}
+			Again, differentiating equation (\ref{eqn:f-uiv}) with respect to $\theta$ gives us
+			\begin{align}
+				\pdv{\theta}\qty[f(z)]&=\pdv{\theta}\qty(u+iv) \nonumber\\
+				\implies\dv{f}{z}\pdv{z}{\theta}&=\pdv{u}{\theta}+i\pdv{v}{\theta} \nonumber\\
+				\implies irf'(z)e^{i\theta}&=\pdv{u}{\theta}+i\pdv{v}{\theta}\qq{[using eqn. (\ref{eqn:dz-dtheta}) on LHS]} \nonumber\\
+				\implies ir\qty[\pdv{u}{r}+i\pdv{v}{r}]&=\pdv{u}{\theta}+i\pdv{v}{\theta} \nonumber\\
+				\implies ir\pdv{u}{r}+i^2r\pdv{v}{r}&=\pdv{u}{\theta}+i\pdv{v}{\theta} \nonumber\\
+				\implies-r\pdv{v}{r}+ir\pdv{u}{r}&=\pdv{u}{\theta}+i\pdv{v}{\theta} \label{eqn:du-drdth:dv-drdth}
+			\end{align}
+			Equating the imaginary and real parts on either sides of equation (\ref{eqn:du-drdth:dv-drdth}), we obtain\vspace{-4ex}
+			\begin{multicols}{2}
+				\begin{align*}
+					r\pdv{u}{r}&=\pdv{v}{\theta} \\
+					\implies\pdv{u}{r}&=\dfrac{1}{r}\pdv{v}{\theta}
+				\end{align*}
+				
+				\begin{align*}
+					-r\pdv{v}{r}&=\pdv{u}{\theta} \\
+					\implies\pdv{u}{\theta}&=-r\pdv{v}{r}
+				\end{align*}
+			\end{multicols}
+			Therefore, the Cauchy-Riemann conditions in polar coordinates are
+			\begin{empheq}[box=\fbox]{align*}
+				\pdv{u}{r}&=\dfrac{1}{r}\pdv{v}{\theta} \\
+				\pdv{u}{\theta}&=-r\pdv{v}{r}
+			\end{empheq}
+		\end{enumerate}

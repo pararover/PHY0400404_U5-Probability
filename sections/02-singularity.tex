@@ -1,0 +1,97 @@
+\section{Singularities of complex functions}
+	A point at which a complex function $f(z)$ fails to be analytic is called a \emph{singular point} or \emph{singularity} of $f(z)$. Various types of singularities exist, which are discussed below:
+	
+	\subsection{Isolated singularities}
+		A point $z=z_0$ is called an \emph{isolated singularity} or \emph{isolated singular point} of a function $f(z)$ if we can find $\delta>0$ such that the circle $|z-z_0|=\delta$ encloses no singular point other than $z_0$.
+		\begin{itemize}
+			\item If no such $\delta$ can be found, we call $z_0$ a \emph{non-isolated singularity}.
+			\item If $z_0$ is not a singular point and we can find $\delta>0$ such that $|z-z_0|=\delta$ encloses no singular
+			point, then we call $z_0$ an \emph{ordinary point} of $f(z)$.
+		\end{itemize}
+		\subsubsection*{Examples}
+			\begin{enumerate}
+				\item $f(z)=\dfrac{1}{z(z-2)}$ has isolated singularities at $z_0=0$ and $z_0=2$.
+				
+				\item $f(z)=e^{1/z}$ has an isolated singularity at $z=0$.
+			\end{enumerate}
+
+	\subsection{Poles}
+		If $z_0$ is an isolated singularity and we can find a positive integer $n$ such that
+		\begin{align*}
+			\lim_{z\to z_0}{\qty(z-z_0)^nf(z)\neq 0}
+		\end{align*}
+		then $z=z_0$ is called a \emph{pole} of order $n$.
+		
+		\begin{itemize}
+			\item Special case: If $n=1$, $z_0$ is called a \emph{simple pole}.
+			\item If $g(z)=\qty(z-z_0)^nf(z)$, where $f(z_0)\neq 0$ and $n$ is a positive integer, then $z=z_0$ is called a \emph{zero} of
+			order $n$ of $g(z)$. In such a case, $z_0$ is a pole of order $n$ of the function $\dfrac{1}{g(z)}$.
+			\begin{itemize}
+				\item If $n=1$, $z_0$ is called a \emph{simple zero}.
+			\end{itemize}
+		\end{itemize}
+		
+		\subsubsection*{Examples}
+			\begin{enumerate}
+				\item $f(z)=\dfrac{1}{(z-2)^3}$ has a pole of order 3 at $z_0=2$.
+				
+				\item $f(z)=\dfrac{3z-2}{(z-1)^2(z+5i)(z-4)}$ has a pole of order 2 at $z_0=1$ and simple poles at $z_0=-5i$ and $z_0=4$. 
+			\end{enumerate}
+	
+	\subsection{Branch points}
+    	\begin{figure}[h!]
+    		\centering
+    		\includegraphics[width=0.5\textwidth]{figures/fig_branch-points}
+    	\end{figure}
+    	Suppose that we are given the function $w=z^{1/2}$. Further, we allow $z$ to make a complete circuit (counterclockwise) around the origin starting from point $A$, as shown in the figure above.
+    	
+    	We have $z=re^{i\theta}$, and so $w=\qty(re^{i\theta})^{1/2}=\sqrt{r}e^{i\theta/2}$. Then at point $A$, $\theta=\theta_1$ and $w=\sqrt{r}e^{i\theta_1/2}$. After a complete circuit back to $A$, $\theta=\theta_1+2\pi$ and so
+    	\begin{align*}
+    		w&=\sqrt{r}e^{i\qty(\theta_1+2\pi)/2} \\
+    			&=\sqrt{r}e^{i\theta_1/2}e^{i\pi} \\
+    		\implies w&=-\sqrt{r}e^{i\theta_1/2}
+    	\end{align*}
+    	Thus, we have not achieved the same value of $w$ with which we started. However, by making a second complete circuit
+    	back to $A$, i.e., $\theta=\theta_1+4\pi$, we have
+    	\begin{align*}
+    		w&=\sqrt{r}e^{i\qty(\theta_1+4\pi)/2} \\
+    		&=\sqrt{r}e^{i\theta_1/2}e^{i2\pi} \\
+    		\implies w&=\sqrt{r}e^{i\theta_1/2}
+    	\end{align*}
+    	and we then do obtain the same value of $w$ with which we started.
+    	
+    	We can describe the above by stating that if $0\leqslant\theta<2\pi$, we are on one branch of the multi-valued
+    	function $z^{1/2}$, while if $2\pi\leqslant\theta<4\pi$, we are on the other branch of the function.
+    	
+    	It is clear that each branch of the function is single-valued. In order to keep the function single-valued, we set up an artificial barrier such as $OB$ where $B$ is at infinity which we agree not to cross.
+    	
+    	This barrier is called a \emph{branch line} or \emph{branch cut}, and point $O$ is called a \emph{branch point}.
+    	
+    	\subsubsection*{Examples}
+    		\begin{enumerate}
+    			\item $f(z)=(z-3)^{1/2}$ has a branch point at $z_0=3$.
+    			
+    			\item $f(z)=\ln\qty(z^2+z-2)$ has branch points where $z^2+z-2=0$, i.e. at $z_0=1$ and $z_0=-2$.
+    		\end{enumerate}
+    	
+    \subsection{Removable singularities}
+    	An isolated singular point z0 is called a \emph{removable singularity} of $f(z)$ if $\lim_{z\to z_0}{f(z)}$ exists.
+    	
+    	By defining $f(z_0)=\lim_{z\to z_0}{f(z)}$, it can then be shown that $f(z)$ is not only continuous at $z_0$ but is also analytic at $z_0$.
+    	
+    	\subsubsection*{Examples}
+	    	\begin{enumerate}
+	    		\item $f(z)=\dfrac{\sin{z}}{z}$ has a removable singularity at $z_0=0$ because $\lim_{z\to 0}{\dfrac{\sin{z}}{z}}=1$, which allows us to define $f(0)=1$.
+	    		
+	    		\item $f(z)=\dfrac{e^{z-1}-1}{z-1}$ has a removable singularity at $z_0=1$ because $\lim_{z\to 1}{\dfrac{e^{z-1}-1}{z-1}}=1$, which allows us to define $f(1)=1$.
+	    	\end{enumerate}
+    
+    \subsection{Essential singularities}
+    	An isolated singularity that is not a pole or removable singularity is called an \emph{essential singularity}.
+    	
+    	\subsubsection*{Examples}
+    		\begin{enumerate}
+    			\item $f(z)=e^{1/(z-2)}$ has an essential singularity at $z_0=2$.
+    			
+    			\item $f(z)=\sin\qty(\dfrac{1}{z-i})$ has an essential singularity at $z_0=i$.
+    		\end{enumerate}
